@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="Gerdemann.VRView" source-language="en" datatype="plaintext" target-language="de">
+    <body>
+        <trans-unit id="ui.label" xml:space="preserve" approved="yes">
+        <source>VR View</source>
+	    <target xml:lang="de">VR View</target>
+	  </trans-unit>
+      <trans-unit id="groups.vrview" xml:space="preserve" approved="yes">
+        <source>VR View</source>
+	    <target xml:lang="de">VR View</target>
+	  </trans-unit>
+      <trans-unit id="properties.asset" xml:space="preserve" approved="yes">
+        <source>360° Image or Video</source>
+	    <target xml:lang="de">360° Bild oder Video</target>
+	  </trans-unit>
+      <trans-unit id="properties.width" xml:space="preserve" approved="yes">
+        <source>Width</source>
+	    <target xml:lang="de">Breite</target>
+	  </trans-unit>
+      <trans-unit id="properties.height" xml:space="preserve" approved="yes">
+        <source>Height</source>
+	    <target xml:lang="de">Höhe</target>
+	  </trans-unit>
+      <trans-unit id="properties.isStereo" xml:space="preserve" approved="yes">
+        <source>Is Stereo image or video?</source>
+	    <target xml:lang="de">Stereobild/-video?</target>
+	  </trans-unit>
+      <trans-unit id="properties.defaultYaw" xml:space="preserve" approved="yes">
+        <source>Initial angle</source>
+	    <target xml:lang="de">Anfangswinkel</target>
+	  </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,10 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Gerdemann.VRView': TRUE
+
+    userInterface:
+      translation:
+        autoInclude:
+          'Gerdemann.VRView': ['NodeTypes/*']
