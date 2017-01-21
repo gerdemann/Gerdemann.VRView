@@ -2,8 +2,7 @@ include: 'NodeTypes/*'
 
 prototype(TYPO3.Neos:Page) {
     vrViewGoogleApiScript = TYPO3.TypoScript:Tag {
-        @position = 'before closingBodyTag'
-        @if.onlyRenderWhenInFrontend = ${!documentNode.context.inBackend}
+        @position = 'after lastVisitedNodeScript 10002'
 
         tagName = 'script'
         attributes {
@@ -13,8 +12,7 @@ prototype(TYPO3.Neos:Page) {
         }
     }
     vrViewScript = TYPO3.TypoScript:Tag {
-        @position = 'before closingBodyTag'
-        @if.onlyRenderWhenInFrontend = ${!documentNode.context.inBackend}
+        @position = 'after lastVisitedNodeScript 10001'
 
         tagName = 'script'
         attributes {

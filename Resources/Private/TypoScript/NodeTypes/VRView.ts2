@@ -27,30 +27,23 @@ prototype(Gerdemann.VRView:VRView) < prototype(TYPO3.Neos:Content) {
         data-defaultyaw = ${defaultYaw}
         data-width = ${width}
         data-height = ${height}
+
+        @if.whenImageOrVideo = ${this.data-type == 'image' || this.data-type == 'video'}
     }
 
     placeholder = TYPO3.TypoScript:Tag {
         tagName = 'img'
         attributes {
-            src = TYPO3.TypoScript:Case {
-                imageAvailable {
-                    condition = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
-                    renderer = TYPO3.TypoScript:ResourceUri {
-                        resource = ${asset.resource}
-                   }
-                }
-
-                fallBackimage {
-                    condition = ${image.resource}
-                    renderer = TYPO3.TypoScript:ResourceUri {
-                        path = 'Images/dummy-image.svg'
-                        package = 'TYPO3.Neos'
-                   }
-                }
+            src = TYPO3.TypoScript:ResourceUri {
+                    path = 'Images/dummy-image.svg'
+                    package = 'TYPO3.Neos'
             }
             style = ${'width: ' + width + '; height: ' + height + ';'}
         }
         alt = 'VR View Placeholder'
+        mediaType = ${Array.first(String.split(asset.mediaType, '/'))}
+
+        @if.whenNoImageOrVideo = ${this.mediaType != 'image' && this.mediaType != 'video'}
         @if.onlyRenderWhenInBackend = ${documentNode.context.inBackend}
     }
 }
