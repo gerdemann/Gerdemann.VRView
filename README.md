@@ -11,3 +11,8 @@ How-To:
 * Publish all changes
 
 Now you should see the Google VR View in the frontend.
+
+License
+-------
+
+The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
