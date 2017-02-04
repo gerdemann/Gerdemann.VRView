@@ -8,24 +8,24 @@ prototype(Gerdemann.VRView:VRViewExtended) < prototype(Gerdemann.VRView:VRView) 
         @if.notInBackend = ${!documentNode.context.inBackend}
     }
 
-    backendScenes  = TYPO3.Neos:ContentCollection {
+    backendScenes  = Neos.Neos:ContentCollection {
         nodePath = 'scenes'
         tagName = 'div'
         @if.inBackend = ${documentNode.context.inBackend}
     }
 
-    scenesArray = TYPO3.TypoScript:Collection {
+    scenesArray = Neos.Fusion:Collection {
     	collection = ${q(node).find('scenes').children('[instanceof Gerdemann.VRView:Scene]').get()}
     	itemName = 'scene'
     	iterationName = 'iteration'
-    	itemRenderer = TYPO3.TypoScript:Value {
-    	    sceneArray = TYPO3.TypoScript:RawArray {
-                options = TYPO3.TypoScript:RawArray {
-                    image = TYPO3.TypoScript:ResourceUri {
+    	itemRenderer = Neos.Fusion:Value {
+    	    sceneArray = Neos.Fusion:RawArray {
+                options = Neos.Fusion:RawArray {
+                    image = Neos.Fusion:ResourceUri {
                          resource = ${q(scene).property('asset').resource}
                          @if.whenImage = ${Array.first(String.split(q(scene).property('asset').mediaType, '/')) == 'image'}
                     }
-                    video = TYPO3.TypoScript:ResourceUri {
+                    video = Neos.Fusion:ResourceUri {
                          resource = ${q(scene).property('asset').resource}
                          @if.whenVideo = ${Array.first(String.split(q(scene).property('asset').mediaType, '/')) == 'video'}
                     }
@@ -39,9 +39,9 @@ prototype(Gerdemann.VRView:VRViewExtended) < prototype(Gerdemann.VRView:VRView) 
                     collection = ${q(scene).find('hotspots').children('[instanceof Gerdemann.VRView:Hotspot]').get()}
                     itemName = 'hotspot'
                     iterationName = 'hotspotIteration'
-                    itemRenderer = TYPO3.TypoScript:RawArray {
+                    itemRenderer = Neos.Fusion:RawArray {
                         scene = ${q(hotspot).property('scene').identifier}
-                        options = TYPO3.TypoScript:RawArray {
+                        options = Neos.Fusion:RawArray {
                             pitch = ${q(hotspot).property('pitch') ? q(hotspot).property('pitch') : 0}
                             yaw = ${q(hotspot).property('yaw') ? q(hotspot).property('yaw') : 0}
                             radius = ${q(hotspot).property('radius') ? q(hotspot).property('radius') / 100 : 0.05}
@@ -64,14 +64,14 @@ prototype(Gerdemann.VRView:VRViewExtended) < prototype(Gerdemann.VRView:VRView) 
 
 
 
-    scenesArray2 = TYPO3.TypoScript:RawArray {
-        start = TYPO3.TypoScript:RawArray {
-            options = TYPO3.TypoScript:RawArray {
-                image = TYPO3.TypoScript:ResourceUri {
+    scenesArray2 = Neos.Fusion:RawArray {
+        start = Neos.Fusion:RawArray {
+            options = Neos.Fusion:RawArray {
+                image = Neos.Fusion:ResourceUri {
                      resource = ${asset.resource}
                      @if.whenImage = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
                 }
-                video = TYPO3.TypoScript:ResourceUri {
+                video = Neos.Fusion:ResourceUri {
                      resource = ${asset.resource}
                      @if.whenVideo = ${Array.first(String.split(asset.mediaType, '/')) == 'video'}
                 }
@@ -81,14 +81,14 @@ prototype(Gerdemann.VRView:VRViewExtended) < prototype(Gerdemann.VRView:VRView) 
                 height = ${height}
             }
 
-            hotspots = TYPO3.TypoScript:RawArray {
-                next = TYPO3.TypoScript:RawArray {
+            hotspots = Neos.Fusion:RawArray {
+                next = Neos.Fusion:RawArray {
                     pitch = 0
                     yaw = 90
                     radius = 0.05
                     distance = 1
                 }
-                next2 = TYPO3.TypoScript:RawArray {
+                next2 = Neos.Fusion:RawArray {
                     pitch = 0
                     yaw = 80
                     radius = 0.05

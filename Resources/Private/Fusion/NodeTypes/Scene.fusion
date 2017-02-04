@@ -1,5 +1,5 @@
-prototype(Gerdemann.VRView:Scene) < prototype(TYPO3.Neos:Content) {
-    identifier = TYPO3.TypoScript:Tag {
+prototype(Gerdemann.VRView:Scene) < prototype(Neos.Neos:Content) {
+    identifier = Neos.Fusion:Tag {
         content = ${q(node).property('identifier')}
         @process.editable = ContentElementEditable {
             property = 'identifier'
@@ -7,7 +7,7 @@ prototype(Gerdemann.VRView:Scene) < prototype(TYPO3.Neos:Content) {
     }
     @process.editable = ContentElementWrapping
 
-    backendHotspots  = TYPO3.Neos:ContentCollection {
+    backendHotspots  = Neos.Neos:ContentCollection {
         nodePath = 'hotspots'
         tagName = 'div'
         @if.inBackend = ${documentNode.context.inBackend}

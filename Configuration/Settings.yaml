@@ -1,10 +1,10 @@
-TYPO3:
+Neos:
   Neos:
-    typoScript:
-      autoInclude:
-        'Gerdemann.VRView': TRUE
-
     userInterface:
       translation:
         autoInclude:
-          'Gerdemann.VRView': ['NodeTypes/*']
+          Gerdemann.VRView:
+            - 'NodeTypes/*'
+    fusion:
+      autoInclude:
+        Gerdemann.VRView: true

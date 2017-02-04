@@ -1,23 +1,23 @@
 include: 'NodeTypes/*'
 include: 'Prototypes/*'
 
-prototype(TYPO3.Neos:Page) {
-    vrViewGoogleApiScript = TYPO3.TypoScript:Tag {
+prototype(Neos.Neos:Page) {
+    vrViewGoogleApiScript = Neos.Fusion:Tag {
         @position = 'after lastVisitedNodeScript 10002'
 
         tagName = 'script'
         attributes {
-            src = TYPO3.TypoScript:ResourceUri {
+            src = Neos.Fusion:ResourceUri {
                 path = 'resource://Gerdemann.VRView/Public/JavaScript/VRView/JavaScript/VRView.min.js'
             }
         }
     }
-    vrViewScript = TYPO3.TypoScript:Tag {
+    vrViewScript = Neos.Fusion:Tag {
         @position = 'after lastVisitedNodeScript 10001'
 
         tagName = 'script'
         attributes {
-            src = TYPO3.TypoScript:ResourceUri {
+            src = Neos.Fusion:ResourceUri {
                 path = 'resource://Gerdemann.VRView/Public/JavaScript/VRView.js'
             }
         }

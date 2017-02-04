@@ -1,4 +1,0 @@
-prototype(Gerdemann.VRView:ArrayCollection) {
-	@class = 'Gerdemann\\VRView\\TypoScriptObjects\\ArrayCollectionImplementation'
-	itemName = 'item'
-}

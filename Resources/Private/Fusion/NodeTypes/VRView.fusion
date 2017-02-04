@@ -1,4 +1,4 @@
-prototype(Gerdemann.VRView:VRView) < prototype(TYPO3.Neos:Content) {
+prototype(Gerdemann.VRView:VRView) < prototype(Neos.Neos:Content) {
     asset = ${q(node).property('asset')}
     width = ${q(node).property('width')}
     height = ${q(node).property('height')}
@@ -21,19 +21,19 @@ prototype(Gerdemann.VRView:VRView) < prototype(TYPO3.Neos:Content) {
         @if.whenImageOrVideo = ${this.data-type == 'image' || this.data-type == 'video'}
     }
 
-    scenesArray = TYPO3.TypoScript:RawArray {
-        start = TYPO3.TypoScript:RawArray {
-            options = TYPO3.TypoScript:RawArray {
-                image = TYPO3.TypoScript:ResourceUri {
+    scenesArray = Neos.Fusion:RawArray {
+        start = Neos.Fusion:RawArray {
+            options = Neos.Fusion:RawArray {
+                image = Neos.Fusion:ResourceUri {
                      resource = ${asset.resource}
                      @if.whenImage = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
                 }
-                video = TYPO3.TypoScript:ResourceUri {
+                video = Neos.Fusion:ResourceUri {
                      resource = ${asset.resource}
                      @if.whenVideo = ${Array.first(String.split(asset.mediaType, '/')) == 'video'}
                 }
-                isstereo = ${isStereo ? 'true' : 'false'}
-                defaultyaw = ${defaultYaw}
+                is_stereo = ${isStereo ? 'true' : 'false'}
+                default_yaw = ${defaultYaw}
                 width = ${width}
                 height = ${height}
             }
@@ -42,12 +42,12 @@ prototype(Gerdemann.VRView:VRView) < prototype(TYPO3.Neos:Content) {
 
     scenes = ${Json.stringify(this.scenesArray)}
 
-    placeholder = TYPO3.TypoScript:Tag {
+    placeholder = Neos.Fusion:Tag {
         tagName = 'img'
         attributes {
-            src = TYPO3.TypoScript:ResourceUri {
+            src = Neos.Fusion:ResourceUri {
                     path = 'Images/dummy-image.svg'
-                    package = 'TYPO3.Neos'
+                    package = 'Neos.Neos'
             }
             style = ${'width: ' + width + '; height: ' + height + ';'}
         }

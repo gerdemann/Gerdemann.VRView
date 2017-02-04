@@ -1,0 +1,4 @@
+prototype(Gerdemann.VRView:ArrayCollection) {
+	@class = 'Gerdemann\\VRView\\FusionObjects\\ArrayCollectionImplementation'
+	itemName = 'item'
+}
