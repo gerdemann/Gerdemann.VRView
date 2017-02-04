@@ -1,0 +1,9 @@
+<div>
+	{backendScenes -> f:format.raw()}
+	<div{attributes -> f:format.raw()}>
+		<script type="text/javascript">
+			var vrViewScenes = {};
+			vrViewScenes['{node.identifier}'] = {scenes -> f:format.raw()};
+		</script>
+	</div>
+</div>

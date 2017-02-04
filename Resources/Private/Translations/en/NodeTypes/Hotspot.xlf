@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="Gerdemann.VRView" source-language="en" datatype="plaintext">
+    <body>
+        <trans-unit id="ui.label" xml:space="preserve" approved="yes">
+        <source>VR View Hotspot</source>
+	  </trans-unit>
+      <trans-unit id="groups.vrview" xml:space="preserve" approved="yes">
+        <source>VR View Hotspot</source>
+	  </trans-unit>
+    </body>
+  </file>
+</xliff>

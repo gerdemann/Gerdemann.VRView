@@ -1,0 +1,13 @@
+'TYPO3.Neos.NodeTypes:Page':
+  childNodes:
+    main:
+      constraints:
+        nodeTypes:
+          'Gerdemann.VRView:Scene': FALSE
+          'Gerdemann.VRView:Hotspot': FALSE
+
+'TYPO3.Neos:ContentCollection':
+  constraints:
+    nodeTypes:
+      'Gerdemann.VRView:Scene': FALSE
+      'Gerdemann.VRView:Hotspot': FALSE

@@ -14,22 +14,33 @@ prototype(Gerdemann.VRView:VRView) < prototype(TYPO3.Neos:Content) {
     attributes {
         class = 'gerdemann-vrview'
         id = ${'vrview-' + node.identifier}
-        data-image = TYPO3.TypoScript:ResourceUri {
-             resource = ${asset.resource}
-             @if.whenImage = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
-        }
         data-type = ${Array.first(String.split(asset.mediaType, '/'))}
-        data-video = TYPO3.TypoScript:ResourceUri {
-             resource = ${asset.resource}
-             @if.whenVideo = ${Array.first(String.split(asset.mediaType, '/')) == 'video'}
-        }
-        data-isstereo = ${isStereo ? 'true' : 'false'}
-        data-defaultyaw = ${defaultYaw}
         data-width = ${width}
         data-height = ${height}
 
         @if.whenImageOrVideo = ${this.data-type == 'image' || this.data-type == 'video'}
     }
+
+    scenesArray = TYPO3.TypoScript:RawArray {
+        start = TYPO3.TypoScript:RawArray {
+            options = TYPO3.TypoScript:RawArray {
+                image = TYPO3.TypoScript:ResourceUri {
+                     resource = ${asset.resource}
+                     @if.whenImage = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
+                }
+                video = TYPO3.TypoScript:ResourceUri {
+                     resource = ${asset.resource}
+                     @if.whenVideo = ${Array.first(String.split(asset.mediaType, '/')) == 'video'}
+                }
+                isstereo = ${isStereo ? 'true' : 'false'}
+                defaultyaw = ${defaultYaw}
+                width = ${width}
+                height = ${height}
+            }
+        }
+    }
+
+    scenes = ${Json.stringify(this.scenesArray)}
 
     placeholder = TYPO3.TypoScript:Tag {
         tagName = 'img'

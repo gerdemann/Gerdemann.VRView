@@ -1,0 +1,101 @@
+prototype(Gerdemann.VRView:VRViewExtended) < prototype(Gerdemann.VRView:VRView) {
+    attributes {
+        data-type >
+        #data-width >
+        #data-height = ${q(node).property('width')}
+
+        @if.whenImageOrVideo = ${true}
+        @if.notInBackend = ${!documentNode.context.inBackend}
+    }
+
+    backendScenes  = TYPO3.Neos:ContentCollection {
+        nodePath = 'scenes'
+        tagName = 'div'
+        @if.inBackend = ${documentNode.context.inBackend}
+    }
+
+    scenesArray = TYPO3.TypoScript:Collection {
+    	collection = ${q(node).find('scenes').children('[instanceof Gerdemann.VRView:Scene]').get()}
+    	itemName = 'scene'
+    	iterationName = 'iteration'
+    	itemRenderer = TYPO3.TypoScript:Value {
+    	    sceneArray = TYPO3.TypoScript:RawArray {
+                options = TYPO3.TypoScript:RawArray {
+                    image = TYPO3.TypoScript:ResourceUri {
+                         resource = ${q(scene).property('asset').resource}
+                         @if.whenImage = ${Array.first(String.split(q(scene).property('asset').mediaType, '/')) == 'image'}
+                    }
+                    video = TYPO3.TypoScript:ResourceUri {
+                         resource = ${q(scene).property('asset').resource}
+                         @if.whenVideo = ${Array.first(String.split(q(scene).property('asset').mediaType, '/')) == 'video'}
+                    }
+                    is_stereo = ${q(scene).property('isStereo') ? 'true' : 'false'}
+                    default_yaw = ${q(scene).property('defaultYaw')}
+                    width = ${q(node).property('width')}
+                    height = ${q(node).property('height')}
+                }
+
+                hotspots = Gerdemann.VRView:ArrayCollection {
+                    collection = ${q(scene).find('hotspots').children('[instanceof Gerdemann.VRView:Hotspot]').get()}
+                    itemName = 'hotspot'
+                    iterationName = 'hotspotIteration'
+                    itemRenderer = TYPO3.TypoScript:RawArray {
+                        scene = ${q(hotspot).property('scene').identifier}
+                        options = TYPO3.TypoScript:RawArray {
+                            pitch = ${q(hotspot).property('pitch') ? q(hotspot).property('pitch') : 0}
+                            yaw = ${q(hotspot).property('yaw') ? q(hotspot).property('yaw') : 0}
+                            radius = ${q(hotspot).property('radius') ? q(hotspot).property('radius') / 100 : 0.05}
+                            distance = ${q(hotspot).property('distance') ? q(hotspot).property('distance') : 2}
+                        }
+                    }
+                }
+            }
+
+    		value = ${Json.stringify(this.sceneArray)}
+    		value.@process.addName = ${'"' + scene.identifier + '": ' + value}
+    		value.@process.addBracketBefore = ${'{' + value}
+    		value.@process.addBracketBefore.@if.first = ${iteration.isFirst}
+    		value.@process.addComma = ${value + ', '}
+    		value.@process.addComma.@if.notLast = ${!iteration.isLast}
+    		value.@process.addBracketAfter = ${value + '}'}
+    		value.@process.addBracketAfter.@if.last = ${iteration.isLast}
+    	}
+    }
+
+
+
+    scenesArray2 = TYPO3.TypoScript:RawArray {
+        start = TYPO3.TypoScript:RawArray {
+            options = TYPO3.TypoScript:RawArray {
+                image = TYPO3.TypoScript:ResourceUri {
+                     resource = ${asset.resource}
+                     @if.whenImage = ${Array.first(String.split(asset.mediaType, '/')) == 'image'}
+                }
+                video = TYPO3.TypoScript:ResourceUri {
+                     resource = ${asset.resource}
+                     @if.whenVideo = ${Array.first(String.split(asset.mediaType, '/')) == 'video'}
+                }
+                isstereo = ${isStereo ? 'true' : 'false'}
+                defaultyaw = ${defaultYaw}
+                width = ${width}
+                height = ${height}
+            }
+
+            hotspots = TYPO3.TypoScript:RawArray {
+                next = TYPO3.TypoScript:RawArray {
+                    pitch = 0
+                    yaw = 90
+                    radius = 0.05
+                    distance = 1
+                }
+                next2 = TYPO3.TypoScript:RawArray {
+                    pitch = 0
+                    yaw = 80
+                    radius = 0.05
+                    distance = 1
+                }
+            }
+        }
+    }
+    scenes = ${this.scenesArray}
+}

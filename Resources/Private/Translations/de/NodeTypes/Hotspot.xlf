@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="Gerdemann.VRView" source-language="en" datatype="plaintext" target-language="de">
+    <body>
+        <trans-unit id="ui.label" xml:space="preserve" approved="yes">
+        <source>VR View Hotspot</source>
+	    <target xml:lang="de">VR View Hotspot</target>
+	  </trans-unit>
+      <trans-unit id="groups.vrview" xml:space="preserve" approved="yes">
+        <source>VR View Hotspot</source>
+	    <target xml:lang="de">VR View Hotspot</target>
+	  </trans-unit>
+      <trans-unit id="properties.pitch" xml:space="preserve" approved="yes">
+        <source>Pitch</source>
+	    <target xml:lang="de">Neigung</target>
+	  </trans-unit>
+      <trans-unit id="properties.yaw" xml:space="preserve" approved="yes">
+        <source>Horizontal angle</source>
+	    <target xml:lang="de">Horizontaler Winkel</target>
+	  </trans-unit>
+      <trans-unit id="properties.radius" xml:space="preserve" approved="yes">
+        <source>Radius</source>
+	    <target xml:lang="de">Radius</target>
+	  </trans-unit>
+      <trans-unit id="properties.distance" xml:space="preserve" approved="yes">
+        <source>Distance</source>
+	    <target xml:lang="de">Distanz</target>
+	  </trans-unit>
+    </body>
+  </file>
+</xliff>

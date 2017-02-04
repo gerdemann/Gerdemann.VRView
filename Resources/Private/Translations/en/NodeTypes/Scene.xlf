@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="" product-name="Gerdemann.VRView" source-language="en" datatype="plaintext">
+    <body>
+        <trans-unit id="ui.label" xml:space="preserve" approved="yes">
+        <source>VR View Scene</source>
+	  </trans-unit>
+      <trans-unit id="groups.vrview" xml:space="preserve" approved="yes">
+        <source>VR View Scene</source>
+	  </trans-unit>
+      <trans-unit id="properties.asset" xml:space="preserve" approved="yes">
+        <source>360° Image or Video</source>
+	  </trans-unit>
+      <trans-unit id="properties.isStereo" xml:space="preserve" approved="yes">
+        <source>Is Stereo image or video?</source>
+	  </trans-unit>
+      <trans-unit id="properties.defaultYaw" xml:space="preserve" approved="yes">
+        <source>Initial angle</source>
+	  </trans-unit>
+    </body>
+  </file>
+</xliff>

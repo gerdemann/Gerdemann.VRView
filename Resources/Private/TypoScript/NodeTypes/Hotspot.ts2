@@ -1,0 +1,5 @@
+prototype(Gerdemann.VRView:Hotspot) < prototype(TYPO3.Neos:Content) {
+    scene = ${q(node).property('scene')}
+    sceneIdentifier = ${q(this.scene).property('identifier')}
+    sceneFilename = ${q(this.scene).property('asset').resource.filename}
+}

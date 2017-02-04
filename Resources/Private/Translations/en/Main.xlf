@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file original="" product-name="Gerdemann.VRView" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="asset" xml:space="preserve" approved="yes">
+                <source>Asset</source>
+            </trans-unit>
+            <trans-unit id="noAsset" xml:space="preserve" approved="yes">
+                <source>No asset</source>
+            </trans-unit>
+            <trans-unit id="hotspots" xml:space="preserve" approved="yes">
+                <source>Hotspots</source>
+            </trans-unit>
+            <trans-unit id="hotspotTo" xml:space="preserve" approved="yes">
+                <source>Hotspot to</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,53 @@
+'Gerdemann.VRView:Scene':
+  label: ${q(node).property('identifier') + ' (' + q(node).property('asset').resource.filename + ')'}
+  superTypes:
+    'TYPO3.Neos:Content': TRUE
+  ui:
+    label: i18n
+    icon: 'icon-image'
+    position: 210
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        vrview:
+          label: i18n
+          position: 5
+          icon: 'icon-image'
+  childNodes:
+    hotspots:
+      type: 'TYPO3.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': FALSE
+          'Gerdemann.VRView:Hotspot': TRUE
+  properties:
+    identifier:
+      type: string
+      ui:
+        inlineEditable: TRUE
+    asset:
+      type: TYPO3\Media\Domain\Model\Asset
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'vrview'
+          position: 20
+    isStereo:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'vrview'
+          position: 30
+    defaultYaw:
+      type: integer
+      defaultValue: 0
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'vrview'
+          position: 40
